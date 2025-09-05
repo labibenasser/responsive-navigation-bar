@@ -7,7 +7,7 @@
 }
 
 ::selection{
-    background-color: hsl(0, 0%, 75%);
+    background-color: hsl(0, 0%, 50%);
 }
 
 body{
@@ -31,7 +31,7 @@ header{
     height: 4rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 32px;
     border-bottom: solid 4px black;
@@ -68,37 +68,37 @@ header nav a{
 }
 
 header nav a span{
-  position: relative;
-  transition: all 0.3s ease-in-out;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 header nav a:hover span{
-  margin-left: 1.5rem;
+    margin-left: 1.5rem;
 }
 
 header nav a span::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 3px;
-  background-color: black;
-  transition: all 0.3s ease-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background-color: black;
+    transition: all 0.3s ease-out;
 }
 
 header nav a:hover span::after{
-  width: 100%;
+    width: 100%;
 }
 
 header nav a i{
-  position: absolute;
-  opacity: 0;
-  transition: all 0.4s ease-in-out;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
 }
 
 header nav a:hover i{
-  opacity: 1;
+    opacity: 1;
 }
 
 #menuBtn{
@@ -144,7 +144,12 @@ header nav a:hover i{
     top: 26px;
 }
 
-@media (max-width: 800px){
+@media (max-width: 900px){
+    header{ 
+        justify-content: space-between;
+        padding: 0 32px;
+    }
+
     header nav{
         position: fixed;
         top: 4rem;
@@ -222,18 +227,72 @@ header nav a:hover i{
 #home{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     min-height: calc(100vh - 4rem);
     padding: 0 32px;
 }
 
-#home div{
+#home .content{
     margin: 32px 8px;
 }
 
+#home h1{
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+}
+
+#home h2{
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
 #home p{
+    font-size: 1.25rem;
     max-width: 50ch;
+    margin-bottom: 8px;
+}
+
+#home .content .btns{
+    text-align: start;
+}
+
+#home .content .btns .btn-1{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 8px 24px;
+    border: solid 4px black;
+    border-radius: 16px;
+    color: black;
+    background-color: white;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#home .content .btns .btn-1:hover{
+    color: white;
+    background-color: black;
+}
+
+#home .content .btns .btn-2{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 8px 24px;
+    border: solid 4px black;
+    border-radius: 16px;
+    color: white;
+    background-color: black;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#home .content .btns .btn-2:hover{
+    color: black;
+    background-color: white;
 }
 
 #home img{
@@ -245,10 +304,41 @@ header nav a:hover i{
     margin: 0 8px;
 }
 
-@media (max-width: 800px){
+@media (max-width: 900px){
     #home{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        min-height: 0px;
+    }
+
+    #home .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #home h1{
+        font-size: 1.75rem;
+        text-align: center;
+    }
+
+    #home h2{
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    #home p{
+        font-size: 0.75;
+        text-align: center;
+    }
+
+    #home .content .btns{
+        text-align: center;
+    }
+
+    #home .content .btns .btn-1{
+        margin-left: 16px;
     }
 }
