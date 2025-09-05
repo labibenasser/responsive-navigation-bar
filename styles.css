@@ -25,19 +25,26 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    height: 3rem;
+    height: 4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 32px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 4px black;
     background-color: white;
     z-index: 999;
 }
 
 header .logo{
+    font-size: 1.5rem;
+    font-weight: 700;
     color: black;
+}
+
+header .logo span{
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 header nav ul{
@@ -49,13 +56,53 @@ header nav ul{
 }
 
 header nav a{
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: black;
 }
 
+header nav a span {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+header nav a:hover span {
+  margin-left: 1.5rem;
+}
+
+header nav a span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background-color: black;
+  transition: all 0.3s ease-out;
+}
+
+header nav a:hover span::after {
+  width: 100%;
+}
+
+header nav a i {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+header nav a:hover i {
+  opacity: 1;
+}
+
 #menuBtn{
+    position: relative;
+    width: 42px;
+    height: 32px;
     display: none;    
-    width: 2.25rem;
-    height: 2.25rem;
     border: none;
     color: black;
     background-color: transparent;
@@ -63,16 +110,46 @@ header nav a{
     cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
+#menuBtn span {
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: #2a1929;
+    transition: all 0.2s ease-in-out;
+}
+
+#menuBtn span:nth-child(odd) {
+    left: 0;
+}
+
+#menuBtn span:nth-child(even) {
+    left: 50%;
+}
+
+#menuBtn span:nth-child(1),
+#menuBtn span:nth-child(2) {
+    top: 0;
+}
+
+#menuBtn span:nth-child(3),
+#menuBtn span:nth-child(4) {
+    top: 13px;
+}
+
+#menuBtn span:nth-child(5),
+#menuBtn span:nth-child(6) {
+    top: 26px;
+}
+
+@media only screen and (max-width: 800px) {
     header nav{
         position: fixed;
-        top: 3rem;
+        top: 4rem;
         right: -100%;
         width: 70%;
         height: 100vh;
         background-color: white;
-        border-left: solid 2px black;
-        z-index: 999;
+        border-left: solid 4px black;
         transition: right 0.3s ease-in-out;
     }
 
@@ -87,10 +164,54 @@ header nav a{
     }
 
     header nav a{
-        font-size: 1.25rem;
+        font-size: 1.75rem;
     }
+
+    header nav a:hover span {
+        margin-left: 2rem;
+    }   
 
     #menuBtn{
         display: inline-block;
+    }
+
+    #menuBtn.show span:nth-child(1),
+    #menuBtn.show span:nth-child(6) {
+        transform: rotate(45deg);
+    }
+
+    #menuBtn.show span:nth-child(2),
+    #menuBtn.show span:nth-child(5) {
+        transform: rotate(-45deg);
+    }
+
+    #menuBtn.show span:nth-child(1) {
+        top: 8px;
+        left: 5px;
+    }
+
+    #menuBtn.show span:nth-child(2) {
+        top: 8px;
+        left: calc(50% - 5px);
+    }
+
+    #menuBtn.show span:nth-child(3) {
+        left: -100%;
+        opacity: 0;
+    }
+
+    #menuBtn.show span:nth-child(4) {
+        left: 150%;
+        opacity: 0;
+    }
+
+    #menuBtn.show span:nth-child(5) {
+        top: 19px;
+        left: 5px;
+    }
+
+    #menuBtn.show span:nth-child(6) {
+        top: 19px;
+        left: calc(50% - 5px);
     }
 }
