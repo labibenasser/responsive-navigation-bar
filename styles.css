@@ -6,10 +6,13 @@
     margin: 0;
 }
 
+::selection{
+    background-color: hsl(0, 0%, 75%);
+}
+
 body{
     font-family: "Poppins", sans-serif;
-    width: 100%;
-    min-height: 100vh;
+    margin-top: 4rem;
 }
 
 ul{
@@ -57,21 +60,23 @@ header nav ul{
 
 header nav a{
     position: relative;
+    display: inline-flex;
+    align-items: center;
     font-size: 1.25rem;
     font-weight: 600;
     color: black;
 }
 
-header nav a span {
+header nav a span{
   position: relative;
   transition: all 0.3s ease-in-out;
 }
 
-header nav a:hover span {
+header nav a:hover span{
   margin-left: 1.5rem;
 }
 
-header nav a span::after {
+header nav a span::after{
   content: "";
   position: absolute;
   left: 0;
@@ -82,19 +87,17 @@ header nav a span::after {
   transition: all 0.3s ease-out;
 }
 
-header nav a:hover span::after {
+header nav a:hover span::after{
   width: 100%;
 }
 
-header nav a i {
+header nav a i{
   position: absolute;
-  top: 3px;
-  left: 0;
   opacity: 0;
   transition: all 0.4s ease-in-out;
 }
 
-header nav a:hover i {
+header nav a:hover i{
   opacity: 1;
 }
 
@@ -110,7 +113,7 @@ header nav a:hover i {
     cursor: pointer;
 }
 
-#menuBtn span {
+#menuBtn span{
     position: absolute;
     width: 50%;
     height: 4px;
@@ -118,30 +121,30 @@ header nav a:hover i {
     transition: all 0.2s ease-in-out;
 }
 
-#menuBtn span:nth-child(odd) {
+#menuBtn span:nth-child(odd){
     left: 0;
 }
 
-#menuBtn span:nth-child(even) {
+#menuBtn span:nth-child(even){
     left: 50%;
 }
 
 #menuBtn span:nth-child(1),
-#menuBtn span:nth-child(2) {
+#menuBtn span:nth-child(2){
     top: 0;
 }
 
 #menuBtn span:nth-child(3),
-#menuBtn span:nth-child(4) {
+#menuBtn span:nth-child(4){
     top: 13px;
 }
 
 #menuBtn span:nth-child(5),
-#menuBtn span:nth-child(6) {
+#menuBtn span:nth-child(6){
     top: 26px;
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px){
     header nav{
         position: fixed;
         top: 4rem;
@@ -167,7 +170,7 @@ header nav a:hover i {
         font-size: 1.75rem;
     }
 
-    header nav a:hover span {
+    header nav a:hover span{
         margin-left: 2rem;
     }   
 
@@ -176,42 +179,71 @@ header nav a:hover i {
     }
 
     #menuBtn.show span:nth-child(1),
-    #menuBtn.show span:nth-child(6) {
+    #menuBtn.show span:nth-child(6){
         transform: rotate(45deg);
     }
 
     #menuBtn.show span:nth-child(2),
-    #menuBtn.show span:nth-child(5) {
+    #menuBtn.show span:nth-child(5){
         transform: rotate(-45deg);
     }
 
-    #menuBtn.show span:nth-child(1) {
+    #menuBtn.show span:nth-child(1){
         top: 8px;
         left: 5px;
     }
 
-    #menuBtn.show span:nth-child(2) {
+    #menuBtn.show span:nth-child(2){
         top: 8px;
         left: calc(50% - 5px);
     }
 
-    #menuBtn.show span:nth-child(3) {
+    #menuBtn.show span:nth-child(3){
         left: -100%;
         opacity: 0;
     }
 
-    #menuBtn.show span:nth-child(4) {
+    #menuBtn.show span:nth-child(4){
         left: 150%;
         opacity: 0;
     }
 
-    #menuBtn.show span:nth-child(5) {
+    #menuBtn.show span:nth-child(5){
         top: 19px;
         left: 5px;
     }
 
-    #menuBtn.show span:nth-child(6) {
+    #menuBtn.show span:nth-child(6){
         top: 19px;
         left: calc(50% - 5px);
+    }
+}
+
+#home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(100vh - 4rem);
+    padding: 0 32px;
+    gap: 32px;
+}
+
+#home p{
+    max-width: 50ch;
+}
+
+#home img{
+    max-width: 400px;
+    padding: 6px;
+    border: solid 8px black;
+    border-radius: 32px;
+}
+
+@media (max-width: 800px){
+    #home{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
